@@ -1,12 +1,14 @@
-import Vue from 'vue'
+import { mount } from 'vue-test-utils'
 import Home from './../../../src/components/Home.vue'
-import expect from 'expect';
+import expect from 'expect'
 
-describe('Home.vue', () => {
-  it('Contents of Home Page', () => {
-    const Constructor = Vue.extend(Home)
-    const vm = new Constructor().$mount()
-    expect(vm.$el.querySelector('.hello').textContent)
-    .toEqual('Home Page Successfully Done!')
-  })
-})
+describe('Home', () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = mount(Home)
+  });
+
+  it('Check if time is true', () => {
+    expect(wrapper.vm.timex).toBe(true);
+  });
+});

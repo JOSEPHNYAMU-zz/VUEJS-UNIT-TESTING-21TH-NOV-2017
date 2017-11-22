@@ -1,7 +1,7 @@
 <template>
     <div class="hello home">
-        <router-link style="background-color: #cccccc;" id="lin" to="/">Home</router-link>
-        <router-link id="lin" to="/Blog">Blog</router-link>
+        <router-link style="background-color: #cccccc;" id="lin" to="/" @click.native="handleClick($event)">Home</router-link>
+        <router-link id="lin" to="/Blog" @click.native="handleClick($event)">Blog</router-link>
         <br/><br/>
         <fieldset class="fie">
             <legend><h2>TO DO LIST</h2></legend>
@@ -42,7 +42,8 @@
         todos: [{
           name: 'Hello, Ill be in Town Today',
           completed: false
-        }]
+        }],
+        timex: true
       }
     },
     methods: {

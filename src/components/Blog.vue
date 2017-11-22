@@ -1,16 +1,13 @@
 <template>
     <div class="hello home">
-        <router-link id="lin" to="/">Home</router-link>
-        <router-link style="background-color: #cccccc;" id="lin" to="/Blog">Blog</router-link>
+        <router-link id="lin" to="/" @click.native="handleClick($event)">Home</router-link>
+        <router-link style="background-color: #cccccc;" id="lin" to="/Blog" @click.native="handleClick($event)">Blog</router-link>
         <br/><br/>
-        <fieldset class="fie">
-            <legend><h2>LATEST NEWS</h2></legend>
             <div id="inputs">
-
+LATEST NEWS
                 <div class="post" v-for="post in posts" :key="post.id">
-                    <div style="margin-bottom: 10px;">
-                        <img style="width:140px;height:120px;float:left;margin-right: 15px;border:solid 1px #000000;
-;border-radius:3px;padding:5px;" src="../assets/Jose.jpg"/><br/><br/><br/>
+                    <div style="padding:12px;color:#ffffff;margin-bottom: 10px;background-color: #7f7f7f;">
+                       <br/><br/>
                         <span><strong>{{ post.title }}</strong></span><br/>
                         <span style="text-align: justify;">{{ post.body }}</span>
                     </div>
@@ -18,7 +15,6 @@
 
 
             </div>
-        </fieldset>
     </div>
 </template>
 
@@ -29,7 +25,14 @@
     name: 'Blog',
     data () {
       return {
-        posts: []
+        posts: [],
+        times: true
+      }
+    },
+    methods: {
+      handleClick(e) {
+        e.preventDefault()
+        this.output = e.target.textContent
       }
     },
     mounted () {
