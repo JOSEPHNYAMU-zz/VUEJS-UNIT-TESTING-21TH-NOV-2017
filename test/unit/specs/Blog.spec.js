@@ -3,12 +3,11 @@ import Vue from 'vue'
 import Blog from './../../../src/components/Blog.vue';
 import expect from 'expect';
 
-describe('Blog', () => {
-  it('should render correct contents', () => {
-    mount(Blog);
+describe('Blog.vue', () => {
+  it('Contents Of Blog Page', () => {
     const Constructor = Vue.extend(Blog)
     const vm = new Constructor().$mount()
-    expect(vm.$el.querySelector('.hello h1').textContent)
-      .toEqual('Success!!')
+    expect(vm.$el.querySelector('.hello').textContent)
+      .toEqual('Success for Blog page !!')
   })
 })

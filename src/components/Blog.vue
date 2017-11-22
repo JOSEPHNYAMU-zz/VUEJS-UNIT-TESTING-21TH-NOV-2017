@@ -9,8 +9,8 @@
 
                 <div class="post" v-for="post in posts" :key="post.id">
                     <div style="margin-bottom: 10px;">
-                        <img style="width:30px;float:left;margin-right: 15px;border:solid 1px #000000;
-;border-radius:3px;padding:5px;" src="../assets/logo.png"/>
+                        <img style="width:140px;height:120px;float:left;margin-right: 15px;border:solid 1px #000000;
+;border-radius:3px;padding:5px;" src="../assets/Jose.jpg"/><br/><br/><br/>
                         <span><strong>{{ post.title }}</strong></span><br/>
                         <span style="text-align: justify;">{{ post.body }}</span>
                     </div>
@@ -24,6 +24,7 @@
 
 <script>
   import axios from 'axios'
+
   export default {
     name: 'Blog',
     data () {
@@ -32,10 +33,10 @@
       }
     },
     mounted () {
-      var self = this;
+      var self = this
       axios.get('https://jsonplaceholder.typicode.com/posts')
         .then(function (res) {
-          self.posts = res.data;
+          self.posts = res.data
           console.log('Data: ', res.data)
         })
         .catch(function (error) {
