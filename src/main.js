@@ -7,20 +7,6 @@ import VueAxios from 'vue-axios'
 Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
 
-Vue.component('manage-posts', {
-  template: '#manage-template',
-  data: function() {
-    return {
-      posts: [
-        'Vue.js: The Basics',
-        'Vue.js Components',
-        'Server Side Rendering with Vue',
-        'Vue + Firebase'
-      ]
-    }
-  }
-})
-
 Vue.component('create-post', {
   template: '#create-template'
 })

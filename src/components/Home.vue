@@ -5,7 +5,9 @@
         <router-link id="lin" to="/Blog" @click.native="handleClick($event)">Blog</router-link>
         <br/><br/>
         <fieldset class="fie">
-            <legend><h3>TO DO LIST</h3></legend>
+            <legend>
+                <Slot id="app"><h3>TO DO LIST</h3></Slot>
+            </legend>
             <div id="inputs">
                 <form v-on:submit.prevent='addTodo'>
                     <input class="inp" required v-model="newTodo" type="text" placeholder="Add a Task" v-focus/>
@@ -38,6 +40,8 @@
 </template>
 
 <script>
+  import Slot from './Slot.vue'
+
   export default {
     data () {
       return {
@@ -48,6 +52,9 @@
         }],
         timex: true
       }
+    },
+    components: {
+      Slot
     },
     methods: {
       addTodo () {
@@ -71,7 +78,7 @@
       removes: {
         get: function () {
           return this.remaining === 0,
-          this.$emit('dones')
+            this.$emit('dones')
         }
       }
     }
