@@ -8,6 +8,24 @@ Vue.use(VueAxios, axios)
 
 Vue.config.productionTip = false
 
+// Custom Directives
+Vue.directive('focus', {
+  inserted: function (el) {
+    el.focus()
+  }
+})
+
+// Custom Events
+Vue.component('clear-all',
+  {
+    template: '<button type="submit" class="xxx" v-on:click="removes">REMOVE ALL</button>'
+  })
+
+// Child for props
+Vue.component('child', {
+  props: ['jose'],
+  template: `<div>{{ jose }}<div>`
+})
 new Vue({
   el: '#app',
   router,

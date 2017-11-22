@@ -1,15 +1,16 @@
 <template>
-  <div id="app">
-    <section class="todo">
-    <router-view/>
-    </section>
-  </div>
+    <div id="app">
+        <section class="todo">
+            <router-view></router-view>
+        </section>
+    </div>
+
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  export default {
+    name: 'app'
+  }
 </script>
 <style src="./assets/index.css"></style>
 

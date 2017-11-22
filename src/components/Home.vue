@@ -1,13 +1,14 @@
 <template>
     <div class="hello home">
-        <router-link style="background-color: #cccccc;" id="lin" to="/" @click.native="handleClick($event)">Home</router-link>
+        <router-link style="background-color: #cccccc;" id="lin" to="/" @click.native="handleClick($event)">Home
+        </router-link>
         <router-link id="lin" to="/Blog" @click.native="handleClick($event)">Blog</router-link>
         <br/><br/>
         <fieldset class="fie">
-            <legend><h2>TO DO LIST</h2></legend>
+            <legend><h3>TO DO LIST</h3></legend>
             <div id="inputs">
                 <form v-on:submit.prevent='addTodo'>
-                    <input class="inp" required v-model="newTodo" type="text" placeholder="Add a Task"/>
+                    <input class="inp" required v-model="newTodo" type="text" placeholder="Add a Task" v-focus/>
                     <button type="submit" class="btn">ADD NEW TASK</button>
                 </form>
                 <br><br><br>
@@ -25,13 +26,14 @@
                         </td>
                     </tr>
                 </table>
-                <ul type="none">
-                    <li><span id="count">{{ remaining }} Complete Task(s)</span></li>
+                <br/>
+                <ul type="none" v-if="remaining">
+                    <li><span id="count">{{ alls }}<child :jose="remaining + ' ' + label"></child></span></li>
                 </ul>
-
-
             </div>
         </fieldset>
+        <clear-all v-if="alls" v-on:click="dones"></clear-all>
+
     </div>
 </template>
 
@@ -39,6 +41,7 @@
   export default {
     data () {
       return {
+        label: 'Complete Task(s)',
         todos: [{
           name: 'Hello, Ill be in Town Today',
           completed: false
@@ -61,6 +64,15 @@
     computed: {
       remaining () {
         return this.todos.filter(todo => todo.completed).length
+      },
+      alls () {
+        return this.todos.filter(todo => todo).length
+      },
+      removes: {
+        get: function () {
+          return this.remaining === 0,
+          this.$emit('dones')
+        }
       }
     }
   }
