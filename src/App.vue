@@ -4,9 +4,7 @@
             <router-view></router-view>
         </section>
     </div>
-
 </template>
-
 <script>
   export default {
     name: 'app'
