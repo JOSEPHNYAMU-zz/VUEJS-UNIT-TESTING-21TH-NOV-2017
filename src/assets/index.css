@@ -1,0 +1,85 @@
+
+.todo {
+    margin: 0 auto;
+    width: 700px;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: left;
+    color: #2c3e50;
+}.inp{
+     height:30px;
+     width:100%;
+     border:solid 1px #cccccc;
+     border-radius:3px;
+ }
+.header{
+    float:left;
+}
+.btn{
+    padding:12px;
+    color:#ffffff;
+    border-radius: 3px;
+    background: green;
+    float:right;
+    margin-top:12px;
+    font-weight: bold;
+    cursor:pointer;
+
+}
+.inputs{
+    padding-bottom: 20px;
+}
+.chk{
+    float: left;
+    height:30px;
+}
+.full{
+    width:100%;
+    float:left;
+    margin:0;
+    padding:0;
+}
+.completed{
+    text-decoration: line-through;
+    color:red;
+}
+#count{
+    font-size:14px;
+    float:right;
+}
+.fie{
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.del{
+    padding:6px;
+    background: brown;
+    color: #ffffff;
+    cursor: pointer;
+}
+.selected{
+    color:green;
+}
+.all{
+    color:yellow;
+}
+.types{
+    float:right;
+    margin-top:12px;
+    font-weight:bold;
+}
+#lin{
+    float:left;
+    padding:7px;
+    color:#ffffff;
+    text-decoration: none;
+    background: green;
+    margin-right:10px;
+}
+.chkk{
+    float:left;
+}
+.home{
+    padding-top:10px;
+}
