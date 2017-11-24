@@ -1,12 +1,12 @@
 <template>
     <div class="hello home">
-        <router-link style="background-color: #cccccc;" id="lin" to="/" @click.native="handleClick($event)">Home
+        <router-link style="background-color: #cccccc;" id="lin" to="/">Home
         </router-link>
-        <router-link id="lin" to="/Blog" @click.native="handleClick($event)">Blog</router-link>
+        <router-link id="lin" to="/Blog">Blog</router-link>
         <br/><br/>
         <fieldset class="fie">
             <legend>
-                <Slot id="app"><h3>TO DO LIST</h3></Slot>
+                <Slotx>TO DO LIST</Slotx>
             </legend>
             <div id="inputs">
                 <form v-on:submit.prevent='addTodo'>
@@ -30,21 +30,24 @@
                 </table>
                 <br/>
                 <ul type="none" v-if="remaining">
-                    <li><span id="count">{{ alls }}<child :jose="remaining + ' ' + label"></child></span></li>
+                    <li><span id="count"><child :jose="remaining + ' ' + label"></child></span></li>
                 </ul>
             </div>
         </fieldset>
-        <clear-all v-if="alls" v-on:click="dones"></clear-all>
+        <Count-tag :counts="cnt" v-if="cnt" @showAlls="counts = $event"></Count-tag>
 
     </div>
 </template>
 
 <script>
-  import Slot from './Slot.vue'
+  import Slotx from './Slotx.vue'
+  import Counts from './Counts.vue'
 
   export default {
     data () {
       return {
+        newTodo: '',
+        alls: '',
         label: 'Complete Task(s)',
         todos: [{
           name: 'Hello, Ill be in Town Today',
@@ -54,7 +57,8 @@
       }
     },
     components: {
-      Slot
+      Slotx,
+      'Count-tag': Counts
     },
     methods: {
       addTodo () {
@@ -72,14 +76,8 @@
       remaining () {
         return this.todos.filter(todo => todo.completed).length
       },
-      alls () {
+      cnt () {
         return this.todos.filter(todo => todo).length
-      },
-      removes: {
-        get: function () {
-          return this.remaining === 0,
-            this.$emit('dones')
-        }
       }
     }
   }

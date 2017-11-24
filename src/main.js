@@ -7,10 +7,6 @@ import VueAxios from 'vue-axios'
 Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
 
-Vue.component('create-post', {
-  template: '#create-template'
-})
-
 // Custom Directives
 Vue.directive('focus', {
   inserted: function (el) {
@@ -18,20 +14,16 @@ Vue.directive('focus', {
   }
 })
 
-// Custom Events
-Vue.component('clear-all',
-  {
-    template: '<button type="submit" class="xxx" v-on:click="removes">REMOVE ALL</button>'
-  })
-
 // Child for props
 Vue.component('child', {
   props: ['jose'],
   template: `<div>{{ jose }}<div>`
 })
-new Vue({
+
+new Vue({ // eslint-disable-line no-new
   el: '#app',
   router,
+  debug: true,
   template: '<App/>',
   components: {App}
 })

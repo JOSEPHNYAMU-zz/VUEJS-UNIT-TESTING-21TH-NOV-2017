@@ -17,7 +17,7 @@
     name: 'Blog',
     data () {
       return {
-        posts: [],
+        posts: []
       }
     },
     mounted () {
@@ -30,7 +30,6 @@
         .catch(function (error) {
           console.log('Error: ', error)
         })
-    },
-
+    }
   }
 </script>

@@ -90,3 +90,23 @@
     border: solid 1px red;
     cursor:pointer;
 }
+
+.flex-container {
+    display: flex;
+}
+
+.flex-item {
+    margin: 5px;
+}
+
+.todo-text {
+    flex-grow: 2;
+}
+
+.search-bar {
+    flex-grow: 2;
+}
+
+.main-card {
+    margin-top: 7px;
+}
